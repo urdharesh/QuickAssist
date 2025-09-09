@@ -36,7 +36,7 @@ function Service() {
 
                 <div className="mb-4 flex justify-between text-sm text-gray-600">
                     <span>Platform Charge</span>
-                    <span className="text-gray-900 font-semibold">₹ 50</span>
+                    <span className="text-gray-900 font-semibold">₹ 20</span>
                 </div>
 
                 {/* <div className="mb-6 flex justify-between items-center">

@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
+import { Slide, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ServicePage from "./components/AvailableServices/ServicePage";
 import BookingDone from "./components/BookingDone/BookingDone";
@@ -23,6 +23,7 @@ import ServiceProvider from "./components/ServiceProvider/ServiceProvider";
 import "./index.css";
 import MainLayout from "./components/Homepage/MainLayout";
 import About from "./components/About/About";
+import { IoClose } from "react-icons/io5";
 
 // function App() {
 //     return (
@@ -134,7 +135,28 @@ function App() {
                 {/* Footer */}
                 {/* <Route path="/" element={<Footer />} /> */}
             </Routes>
-            <ToastContainer autoClose={5000} theme="colored" newestOnTop={true} />
+            {/* <ToastContainer autoClose={5000} theme="colored" newestOnTop={true} /> */}
+            <ToastContainer
+                position="top-right"
+                autoClose={3000}
+                hideProgressBar={false}
+                closeOnClick
+                pauseOnHover
+                draggable
+                progressClassName="Toastify__progress-bar !h-[2px] !rounded-b-md"
+                toastClassName={() =>
+                    "relative flex items-start px-3 py-2 sm:px-4 sm:py-2 mb-2 sm:mb-3 w-auto max-w-xs rounded-md bg-white text-gray-800 shadow-md border border-gray-200 transition-all duration-300 ease-in-out"
+                }
+                bodyClassName={() => "flex items-center text-xs sm:text-sm font-medium pr-6 py-2"} // extra right padding so text doesn't clash with X
+                closeButton={({ closeToast }) => (
+                    <button
+                        onClick={closeToast}
+                        className="absolute top-1 right-1 text-gray-400 hover:text-gray-600 focus:outline-none"
+                    >
+                        <IoClose className="w-4 h-4" />
+                    </button>
+                )}
+            />
         </div>
     );
 }

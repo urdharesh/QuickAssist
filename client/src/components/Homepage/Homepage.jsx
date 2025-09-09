@@ -8,7 +8,7 @@ import LandingPage from "./LandingPage";
 function Homepage() {
   return (
     <>
-      <div className="pt-16 ">
+      <div>
         <LandingPage />
         <Carousel />
         <OurServices />

@@ -9,12 +9,23 @@ const port = process.env.PORT || 8000;
 // use middlewares
 // Set up CORS
 
-const _dirname = path.resolve();
+__dirname = path.resolve();
+
+const allowedOrigins = [
+    "http://localhost:3000", //for development
+    "http://localhost:8000", //for development
+    "https://quick-assist.onrender.com"
+];
 
 app.use(cors({
-    origin: 'https://quick-assist.onrender.com',
+    origin: allowedOrigins,
     credentials: true,
 }));
+
+// app.use(cors({
+//     origin: 'https://quick-assist.onrender.com',
+//     credentials: true,
+// }));
 // app.use(cors());
 app.use(express.json());
 
@@ -27,26 +38,39 @@ app.use("/api", require("./routes/authRoutes"));
 app.use("/api", require("./routes/notificationRoutes"));
 app.use("/api", require("./routes/paymentRoutes"));
 
-app.use(express.static(path.join(__dirname, '../client/build')));
 
-app.get('*', (_, res) => {
-    res.sendFile(path.resolve(_dirname, "client", "build", "index.html"));
+
+// // if (process.env.NODE_ENV === "production") {
+// // serve React build
+// app.use(express.static(path.join(__dirname, "client", "build")));
+
+// app.get("*", (_, res) => {
+//     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+// });
+// // } else {
+// // dev mode test route
+// //     app.get("/", (req, res) => {
+// //         res.send("API running in development mode 🚀");
+// //     });
+// // }
+
+// // ONLY serve static files in production
+// if (process.env.NODE_ENV === "production") {
+//     // Serve React build
+app.use(express.static(path.join(__dirname, "client", "build")));
+
+app.get("*", (_, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
 });
-
-// if (process.env.NODE_ENV == "production") {
-//     // app.use(express.static(path.join(__dirname, '../client/build')));
-
-//     // app.get('/', function(req, res){
-//     //     res.sendFile(__dirname, '../client/build/index.html');
-//     // });
-//     app.get("/", function (req, res) {
-//         res.send("API running :)");
-//     });
 // } else {
-//     app.get("/", function (req, res) {
-//         res.send("API running :)");
+//     // Development mode test route
+//     app.get("/", (req, res) => {
+//         res.send("API running in development mode 🚀");
 //     });
 // }
+
+
+
 
 con.then((db) => {
     if (!db) return process.exit(1);

@@ -38,9 +38,11 @@ const getNotificationsByHandyman = async (req, res) => {
     const handyman_id = req.body.handyman_id;
 
     try {
+
         const notifications = await Notification.find({ handyman_id });
 
         // For each notification, find the user by matching `user_id`
+
         const enrichedNotifications = await Promise.all(
             notifications.map(async (notif) => {
                 const user = await User.findOne({ user_id: notif.user_id });
@@ -59,16 +61,6 @@ const getNotificationsByHandyman = async (req, res) => {
     } catch (error) {
         res.status(404).json({ msg: error.message });
     }
-
-    // TODO try doing the below notification search is now working
-    // Notification.find({ handyman_id: handyman_id }, async function (err, docs) {
-    //     if (err) {
-    //         console.log(err);
-    //         res.status(400).send({ msg: "No such handyman exists" });
-    //     } else {
-    //         res.status(200).send(docs[0]);
-    //     }
-    // });
 };
 
 // route - http://localhost:8080/api/acceptnotification

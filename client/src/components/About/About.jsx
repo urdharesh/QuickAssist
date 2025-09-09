@@ -34,7 +34,7 @@ const About = () => {
                 animate="visible"
             >
                 <motion.div
-                    className="m-10 max-w-5xl w-full md:bg-white/70 backdrop-blur-md border-none md:border border-yellow-300/30 shadow-lg rounded-3xl p-10"
+                    className="md:m-10 max-w-5xl w-full md:bg-white/70 backdrop-blur-md border-none md:border border-yellow-300/30 shadow-lg rounded-3xl p-10"
                     variants={itemVariants}
                 >
                     <motion.h1

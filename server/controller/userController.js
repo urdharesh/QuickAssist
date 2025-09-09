@@ -181,8 +181,8 @@ const resendOtp = async (req, res) => {
     const Email = req.body.email;
 
     // validating whether user already exists or not
-    const user = await User.findOne({ Email });
-    if (user) {
+    const user = await User.findOne({ email: Email });
+    if (!user) {
         return res.status(400).send({
             msg: "This Email ID is not registered. Try Signing Up instead!",
         });

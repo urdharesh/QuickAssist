@@ -17,8 +17,8 @@ function sendOtpMail(Email, otp) {
     let mailOptions = {
         from: process.env.NODE_MAILER_USER,
         to: Email,
-        subject: "One Time Password - Local Handyman",
-        html: `Please keep your OTP confidential and do not share it with anyone. The OTP will be valid for five minutes only. <br><strong>OTP: ${otp}</strong><br><br>Thank you for choosing Local Handyman!<br><br>If you have any questions, please contact us at:<br>ujjawalpatidar0303@gmail.com`,
+        subject: "One Time Password - QuickAssist",
+        html: `Please keep your OTP confidential and do not share it with anyone. The OTP will be valid for five minutes only. <br><strong>OTP: ${otp}</strong><br><br>Thank you for choosing QuickAssist!<br><br>If you have any questions, please contact us at:<br>ujjawalpatidar0303@gmail.com`,
     };
 
     transporter.sendMail(mailOptions, function (err, success) {
@@ -47,7 +47,7 @@ function sendJobStartOtpMail(Email, otp) {
     let mailOptions = {
         from: process.env.NODE_MAILER_USER,
         to: Email,
-        subject: "Job Start One Time Password - Local Handyman",
+        subject: "Job Start One Time Password - QuickAssist",
         html: `Please share this OTP with the handyman once he arives. <br><strong>OTP: ${otp}</strong><br><br>Thank you for choosing Local Handyman!<br><br>If you have any questions, please contact us at:<br>ujjawalpatidar0303@gmail.com`,
     };
 
@@ -77,8 +77,8 @@ function sendLoginVerificationMail(Details) {
     let mailOptions = {
         from: process.env.NODE_MAILER_USER,
         to: Details.email,
-        subject: `Login Successful - Local Handyman`,
-        html: `Dear <i>${Details.name}</i>,<br><br>You have successfully logged in to your account at Local Handyman! Thank you for being a part of our community.<br><br>If you have any questions or concerns, please don't hesitate to reach out to us. We're here to help please contact us at:<br>ujjawalpatidar0303@gmail.com.<br><br>Best regards,<br>The QuickAssist Team`,
+        subject: `Login Successful - at QuickAssist`,
+        html: `Dear <i>${Details.name}</i>,<br><br>You have successfully logged in to your account at QuickAssist! Thank you for being a part of our community.<br><br>If you have any questions or concerns, please don't hesitate to reach out to us. We're here to help please contact us at:<br>ujjawalpatidar0303@gmail.com.<br><br>Best regards,<br>Team - QuickAssist`,
     };
 
     transporter.sendMail(mailOptions, function (err, success) {

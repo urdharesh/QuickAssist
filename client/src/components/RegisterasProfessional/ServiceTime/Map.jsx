@@ -4,6 +4,8 @@ import { toast } from "react-toastify";
 import map_start_end from "./images/map_start_end.png";
 import Mapbox from "../../../utils/Mapbox";
 
+const API = process.env.REACT_APP_BACKEND_API;
+
 function Map() {
     const navigate = useNavigate();
     const location = useLocation();
@@ -49,7 +51,7 @@ function Map() {
     useEffect(() => {
         const fetchUserData = async () => {
             const response = await fetch(
-                `https://quick-assist.onrender.com/api/user/getuser`,
+                `${API}/api/user/getuser`,
                 {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
@@ -83,7 +85,7 @@ function Map() {
         e.preventDefault();
         const enteredOtp = otp.join("");
         const response = await fetch(
-            `https://quick-assist.onrender.com/api/handyman/jobstartotp`,
+            `${API}/api/handyman/jobstartotp`,
             {
                 method: "POST",
                 headers: {

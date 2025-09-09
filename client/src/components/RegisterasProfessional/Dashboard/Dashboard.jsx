@@ -5,6 +5,8 @@ import { gethandymanToken } from "./../../../utils/cookies/getHandymanToken";
 import DashboardNavbar from "./DashboardNavbar";
 import ServiceHistory from "./Service/ServiceHistory";
 
+const API = process.env.REACT_APP_BACKEND_API;
+
 function Dashboard() {
     const handyman_id = gethandymanToken();
     // TODO got all the data from notification now just show the data in the popup
@@ -15,7 +17,7 @@ function Dashboard() {
         const intervalId = setInterval(() => {
             const getNotifications = async () => {
                 const response = await fetch(
-                    `https://quick-assist.onrender.com/api/getnotification`,
+                    `${API}/api/getnotification`,
                     {
                         method: "POST",
                         headers: {

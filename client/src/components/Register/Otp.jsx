@@ -4,6 +4,8 @@ import { toast } from "react-toastify";
 import { setUserToken } from "./../../utils/cookies/setUserToken";
 // import "./Otp.css";
 
+const API = process.env.REACT_APP_BACKEND_API;
+
 function Otp(props) {
     const navigate = useNavigate();
 
@@ -48,7 +50,7 @@ function Otp(props) {
         // Send the entered OTP to the backend for verification
         const response = await fetch(
 
-            `https://quick-assist.onrender.com/api/user/signup/verify`,
+            `${API}/api/user/signup/verify`,
             {
                 method: "POST",
                 headers: {
@@ -100,7 +102,7 @@ function Otp(props) {
         try {
             // Send a request to the backend to resend the OTP
             const response = await fetch(
-                `https://quick-assist.onrender.com/api/user/signup/resendOtp`,
+                `${API}/api/user/signup/resendOtp`,
                 {
                     method: "POST",
                     headers: {

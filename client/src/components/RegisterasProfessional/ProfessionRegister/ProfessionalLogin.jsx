@@ -7,6 +7,8 @@ import "./bg2.css";
 import back from "./images/back.png";
 import serviceProbImg from "./images/serviceProbImg.jpg"
 
+const API = process.env.REACT_APP_BACKEND_API;
+
 function ProfessionalLogin() {
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
@@ -32,7 +34,7 @@ function ProfessionalLogin() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const response = await fetch(
-            `https://quick-assist.onrender.com/api/handyman/login`,
+            `${API}/api/handyman/login`,
             {
                 method: "POST",
                 headers: {

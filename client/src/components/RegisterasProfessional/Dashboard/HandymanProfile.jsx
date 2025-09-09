@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import DashboardNavbar from "./DashboardNavbar";
 
+const API = process.env.REACT_APP_BACKEND_API;
+
 function HandymanProfile() {
     const location = useLocation();
     const handyman_id = new URLSearchParams(location.search).get("handyman_id");
@@ -12,7 +14,7 @@ function HandymanProfile() {
     useEffect(() => {
         const fetchHandyman = async () => {
             const response = await fetch(
-                `https://quick-assist.onrender.com/api/handyman/gethandyman`,
+                `${API}/api/handyman/gethandyman`,
                 {
                     method: "POST",
                     headers: {

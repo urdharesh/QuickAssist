@@ -1,12 +1,14 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
+const API = process.env.REACT_APP_BACKEND_API;
+
 function PopUp(props) {
     const navigate = useNavigate();
     const { notificationData } = props;
 
     const handleAccept = () => {
-        fetch(`https://quick-assist.onrender.com/api/acceptnotification`, {
+        fetch(`${API}/api/acceptnotification`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -28,7 +30,7 @@ function PopUp(props) {
     };
 
     const handleDecline = () => {
-        fetch(`https://quick-assist.onrender.com/api/rejectnotification`, {
+        fetch(`${API}/api/rejectnotification`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

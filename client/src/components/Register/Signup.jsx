@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Cookies from "universal-cookie";
-import { setUserToken } from "../../utils/cookies/setUserToken";
+// import { setUserToken } from "../../utils/cookies/setUserToken";
 import useGeoLocation from "../../utils/useGeoLocation";
 import Otp from "./Otp";
 import "./bg1.css";
 import back from "./images/back.png";
+
+const API = process.env.REACT_APP_BACKEND_API;
 
 function Signup() {
     const navigate = useNavigate();
@@ -38,7 +40,7 @@ function Signup() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const response = await fetch(
-            `https://quick-assist.onrender.com/api/user/signup`,
+            `${API}/api/user/signup`,
             {
                 method: "POST",
                 headers: {
@@ -54,7 +56,7 @@ function Signup() {
             // console.log(data);
             if (response.status === 200) {
                 toast.success(data.msg);
-                setUserToken(data.user_id); //set up cookie
+                // setUserToken(data.user_id); //set up cookie
                 toast.info("Redirecting you...");
                 // console.log(data);
                 setVerified(true);

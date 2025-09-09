@@ -5,6 +5,9 @@ import { gethandymanToken } from "../../../utils/cookies/getHandymanToken";
 import "./Completed.css";
 import workdone from "./images/work_done.jpeg";
 import { motion } from "framer-motion";
+import { BsCheck } from "react-icons/bs";
+
+const API = process.env.REACT_APP_BACKEND_API;
 
 function Completed() {
     const navigate = useNavigate();
@@ -16,7 +19,7 @@ function Completed() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const response = await fetch(
-            `https://quick-assist.onrender.com/api/workdonecheck`,
+            `${API}/api/workdonecheck`,
             {
                 method: "POST",
                 headers: {
@@ -67,14 +70,24 @@ function Completed() {
                     />
                 </motion.div>
 
-                <motion.button
-                    onClick={handleSubmit}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="bg-orange-500 hover:bg-orange-600 text-white text-lg font-semibold px-10 py-4 rounded-full shadow-lg transition"
-                >
-                    ✅ Work Done?
-                </motion.button>
+                <div className="flex items-center justify-center space-x-4">
+
+                    <motion.button
+                        onClick={handleSubmit}
+                        whileTap={{ scale: 0.95 }}
+                        className="flex items-center bg-orange-500  hover:bg-orange-600 text-white text-md md:text-lg font-semibold px-3 md:px-7 py-1.5 md:py-3 rounded-full shadow-lg transition"
+                    >
+                        <BsCheck size={30} /><span>Work Done</span>
+                    </motion.button>
+
+                    <motion.button
+                        onClick={() => navigate(`/`)}
+                        whileTap={{ scale: 0.95 }}
+                        className="flex items-center border-2 border-orange-500 hover:border-orange-800 text-black text-md md:text-lg font-semibold px-3 md:px-7 py-1.5 md:py-3 rounded-full shadow-lg transition"
+                    >
+                        <span>Cancel</span>
+                    </motion.button>
+                </div>
             </motion.div>
         </div>
 

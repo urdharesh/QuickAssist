@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useLocation, useSearchParams } from "react-router-dom";
 import ServicePerson from "./ServicePerson";
 
+const API = process.env.REACT_APP_BACKEND_API;
+
 function ServiceProvider() {
     const location = useLocation();
     const [searchParams] = useSearchParams();
@@ -15,7 +17,7 @@ function ServiceProvider() {
     useEffect(() => {
         const fetchHandymen = async () => {
             await fetch(
-                `https://quick-assist.onrender.com/api/handyman/getallhandyman`
+                `${API}/api/handyman/getallhandyman`
             )
                 .then((response) => response.json())
                 .then((handymen) => setHandymen(handymen));
@@ -50,8 +52,10 @@ function ServiceProvider() {
             (handyman) => handyman.services.toLowerCase() === serviceSelected
         );
         // Fetch handymen data from the backend
-        setLat(new URLSearchParams(location.search).get("lat"));
-        setLong(new URLSearchParams(location.search).get("long"));
+        // setLat(new URLSearchParams(location.search).get("lat"));
+        // setLong(new URLSearchParams(location.search).get("long"));
+        setLat(parseFloat(new URLSearchParams(location.search).get("lat")));
+        setLong(parseFloat(new URLSearchParams(location.search).get("long")));
 
         // Sort handymen based on their distance from the user
         const sortedHandymen = filteredHandymen?.sort((a, b) => {

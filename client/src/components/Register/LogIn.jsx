@@ -11,6 +11,7 @@ function LogIn() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [userId, setUserId] = useState(null);
+    const API = process.env.REACT_APP_BACKEND_API;
 
     var cookies = new Cookies();
 
@@ -31,7 +32,7 @@ function LogIn() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const response = await fetch(
-            `https://quick-assist.onrender.com/api/user/login`,
+            `${API}/api/user/login`,
             {
                 method: "POST",
                 headers: {

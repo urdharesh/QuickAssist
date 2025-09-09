@@ -1,11 +1,11 @@
 {
   "name": "local_handyman_backend",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.cjs",
   "scripts": {
-    "dev": "nodemon server/index.js",
+    "dev": "nodemon server/index.cjs",
     "build": "npm install && npm install --prefix client && npm run build --prefix client",
-    "start" : "nodemon server/index.js" 
+    "start": "node server/index.cjs"
   },
   "keywords": [],
   "author": "Ujjawal Patidar",
@@ -24,6 +24,8 @@
     "stripe": "^12.4.0",
     "uuid": "^9.0.0"
   },
-  
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "cross-env": "^10.0.0"
+  }
 }

@@ -4,6 +4,8 @@ import { getUserToken } from "./../../utils/cookies/getUserToken";
 import { FaPhoneAlt } from "react-icons/fa";
 import { FiPhoneCall } from "react-icons/fi";
 
+const API = process.env.REACT_APP_BACKEND_API;
+
 function ServicePerson({
     handyman_id,
     name,
@@ -41,7 +43,7 @@ function ServicePerson({
     const handleSelect = () => {
         setIsLoading(true);
         setShowCountdown(true);
-        fetch(`https://quick-assist.onrender.com/api/createnotification`, {
+        fetch(`${API}/api/createnotification`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -59,7 +61,7 @@ function ServicePerson({
                 setIsAccepted(false);
                 const interval = setInterval(() => {
                     fetch(
-                        `https://quick-assist.onrender.com/api/getnotification`,
+                        `${API}/api/getnotification`,
                         {
                             method: "POST",
                             headers: {
@@ -112,6 +114,9 @@ function ServicePerson({
                     <p className="text-sm text-gray-500 line-clamp-1">{address}</p>
                     <p className="text-sm text-gray-600 mt-1">Member for {memberSince}</p>
                     <p className="text-sm text-gray-600">Completed {jobsCompleted} jobs</p>
+                    {/* {distance !== undefined && (
+                        <p className="text-gray-600 text-sm">{distance.toFixed(2)} km away</p>
+                    )} */}
                 </div>
 
                 {/* Call Now Button (inside card, green with shimmer) */}

@@ -8,6 +8,8 @@ import useGeoLocation from "../../../utils/useGeoLocation";
 import serviceProbImg from "./images/serviceProbImg.jpg"
 import back from "./images/back.png";
 
+const API = process.env.REACT_APP_BACKEND_API;
+
 function ProfessionalRegisterSecond(props) {
     const navigate = useNavigate();
 
@@ -51,7 +53,7 @@ function ProfessionalRegisterSecond(props) {
         // console.log(data);
 
         const response = await fetch(
-            `https://quick-assist.onrender.com/api/handyman/signup/verify`,
+            `${API}/api/handyman/signup/verify`,
             {
                 method: "POST",
                 headers: {
@@ -86,7 +88,7 @@ function ProfessionalRegisterSecond(props) {
         try {
             // Send a request to the backend to resend the OTP
             const response = await fetch(
-                `https://quick-assist.onrender.com/api/user/signup/resendOtp`,
+                `${API}/api/user/signup/resendOtp`,
                 {
                     method: "POST",
                     headers: {

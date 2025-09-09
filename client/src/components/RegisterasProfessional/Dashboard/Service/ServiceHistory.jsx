@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { gethandymanToken } from "../../../../utils/cookies/getHandymanToken";
 
+const API = process.env.REACT_APP_BACKEND_API;
 
 function ServiceHistory() {
     const [userSelected, setUserSelected] = useState([]);
@@ -12,7 +13,7 @@ function ServiceHistory() {
         const intervalId = setInterval(() => {
             const getHandyman = async () => {
                 const response = await fetch(
-                    `https://quick-assist.onrender.com/api/handyman/gethandyman`,
+                    `${API}/api/handyman/gethandyman`,
                     {
                         method: "POST",
                         headers: {

@@ -11,12 +11,12 @@ function Navbar() {
     const navigate = useNavigate();
     const [showMobileMenu, setShowMobileMenu] = useState(false);
     const [loggedIn, setLoggedIn] = useState(!!getUserToken());
-
+    const API = process.env.REACT_APP_BACKEND_API;
 
     useEffect(() => {
         const fetchOnce = async () => {
             try {
-                const response = await fetch(`https://quick-assist.onrender.com/api/handyman/getallhandyman`);
+                const response = await fetch(`${API}/api/handyman/getallhandyman`);
                 if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
                 await response.json();
                 // console.log("Server Started");

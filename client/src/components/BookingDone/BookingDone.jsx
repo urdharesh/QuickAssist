@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import "./BookingDone.css";
+// import "./BookingDone.css";
 import call from "./images/call.png";
 import confirm from "./images/confirm.png";
 import profilecircle from "./images/profilecircle.png";
@@ -14,16 +14,18 @@ function BookingDone() {
     const long = new URLSearchParams(location.search).get("long");
     const cost = new URLSearchParams(location.search).get("cost");
     const gst = Math.round(cost * 0.18);
-    const total = 50 + parseFloat(cost) + parseFloat(gst);
+    const total = 20 + parseFloat(cost) + parseFloat(gst);
     const handyman_id = new URLSearchParams(location.search).get("handyman_id");
 
     const [handymanData, setHandymanData] = useState("");
     const [copied, setCopied] = useState(false);
 
+    const API = process.env.REACT_APP_BACKEND_API;
+
     useEffect(() => {
         const fetchHandymanDetails = async () => {
             const response = await fetch(
-                `https://quick-assist.onrender.com/api/handyman/gethandyman`,
+                `${API}/api/handyman/gethandyman`,
                 {
                     method: "POST",
                     headers: {
@@ -139,7 +141,7 @@ function BookingDone() {
                     <div className="space-y-3">
                         <div className="flex justify-between text-gray-600">
                             <span>Platform Charge</span>
-                            <span>50</span>
+                            <span>20</span>
                         </div>
                         <div className="flex justify-between text-gray-600">
                             <span>Handyman Charges</span>

@@ -6,6 +6,8 @@ import ProfessionalRegisterSecond from "./ProfessionalRegisterSecond";
 import serviceProbImg from "./images/serviceProbImg.jpg"
 import back from "./images/back.png";
 
+const API = process.env.REACT_APP_BACKEND_API;
+
 function ProfessionalRegister() {
     const navigate = useNavigate();
     const [name, setName] = useState("");
@@ -34,7 +36,7 @@ function ProfessionalRegister() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const response = await fetch(
-            `https://quick-assist.onrender.com/api/handyman/signup`,
+            `${API}/api/handyman/signup`,
             {
                 method: "POST",
                 headers: {
