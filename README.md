@@ -90,17 +90,17 @@ Finding reliable local service providers quickly is often difficult and unorgani
 
 QuickAssist
 ├── client
-│   ├── public
-│   └── src
-│       ├── components
-│       ├── utils
-│       ├── App.js
-│       └── index.js
+│ ├── public
+│ └── src
+│ ├── components
+│ ├── utils
+│ ├── App.js
+│ └── index.js
 ├── server
-│   ├── controllers
-│   ├── models
-│   ├── routes
-│   └── db
+│ ├── controllers
+│ ├── models
+│ ├── routes
+│ └── db
 ├── .env
 ├── package.json
 └── README.md
