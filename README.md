@@ -1,103 +1,91 @@
-🚀 QuickAssist – Local Service Finder
+# 🚀 QuickAssist – Local Service Finder
 
 QuickAssist is a full-stack MERN web application that helps users find and book local service providers such as plumbers, electricians, mechanics, and tutors based on their current location or selected service category.
 
-🔗 Live Demo: https://quick-assist.onrender.com/
+Live Demo: https://quick-assist.onrender.com/
 
-📌 Problem Statement
+---
+
+## 📌 Problem Statement
 
 Finding reliable local service providers quickly is often difficult and unorganized. QuickAssist solves this by providing a centralized platform where users can discover, book, and pay service professionals securely.
 
-🛠️ Tech Stack
-Frontend
+---
 
-React.js
+## 🛠️ Tech Stack
 
-JavaScript
+### Frontend
 
-HTML5 & CSS3
+- React.js
+- JavaScript
+- HTML5
+- CSS3
+- Tailwind CSS
+- Axios
 
-Tailwind CSS
+### Backend
 
-Axios
+- Node.js
+- Express.js
+- MongoDB (Mongoose)
+- JWT Authentication
+- Nodemailer
+- Stripe Payment Gateway
 
-Backend
+### Tools & Services
 
-Node.js
+- MongoDB Atlas
+- Render (Deployment)
+- Mapbox
 
-Express.js
+---
 
-MongoDB (Mongoose)
+## ✨ Core Features
 
-JWT Authentication
+- Authentication & Authorization
+  - Separate registration for users and service providers
+  - JWT-based secure login
+  - Protected routes
 
-Nodemailer
+- Location-Based Service Discovery
+  - Detects user location using Geolocation API
+  - Manual service search fallback
 
-Stripe Payment Gateway
+- Search & Filter
+  - Browse services by category
+  - View service provider details
 
-Tools & Services
+- Secure Payments
+  - Stripe payment integration
+  - Safe transactions
 
-MongoDB Atlas
+- Email Notifications
+  - Booking confirmation emails using Nodemailer
 
-Render (Deployment)
+- Responsive UI
+  - Mobile and desktop support
 
-Mapbox (Location & Maps)
+---
 
-✨ Core Features
+## 🧠 Project Architecture
 
-🔐 Authentication & Authorization
+### Backend
 
-Separate registration for users and service providers
+- MVC architecture
+- Controllers handle business logic
+- Models define MongoDB schemas
+- Routes manage API endpoints
+- Middleware handles authentication and validation
 
-JWT-based secure login
+### Frontend
 
-Protected routes
+- Feature-based component structure
+- Reusable UI components
+- Utility functions for token and location handling
 
-📍 Location-Based Service Discovery
+---
 
-Detects user location using Geolocation API
-
-Manual service search fallback
-
-🔍 Search & Filter
-
-Browse services by category
-
-View service provider details
-
-💳 Secure Payments
-
-Stripe payment integration
-
-Safe and verified transactions
-
-📧 Email Notifications
-
-Booking confirmation emails using Nodemailer
-
-📱 Responsive UI
-
-Fully responsive design for mobile and desktop
-
-🧠 Project Architecture
-Backend (MVC Pattern)
-
-Controllers – Business logic (users, services, payments, emails)
-
-Models – MongoDB schemas
-
-Routes – API endpoints
-
-Middleware – Authentication & validation
-
-Frontend
-
-Feature-based component structure
-
-Reusable UI components
-
-Utility functions for token and location handling
-
+## 📂 Folder Structure
 
 
 QuickAssist
@@ -116,18 +104,6 @@ QuickAssist
 ├── .env
 ├── package.json
 └── README.md
-
-dashboard
-
-🚧 Challenges Faced
-
-Handling authentication persistence on page refresh
-
-Managing secure payment flow with Stripe
-
-Dealing with Render cold start delays
-
-Coordinating frontend–backend API communication
 
 🔮 Future Enhancements
 
